@@ -1,6 +1,5 @@
 package io.github.pako25.towerWars.Arena.MobData;
 
-import com.destroystokyo.paper.entity.Pathfinder;
 import io.github.pako25.towerWars.Arena.MobType;
 import io.github.pako25.towerWars.Arena.TWMob;
 import net.minecraft.world.entity.PathfinderMob;

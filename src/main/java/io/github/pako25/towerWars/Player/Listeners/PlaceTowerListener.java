@@ -1,15 +1,10 @@
 package io.github.pako25.towerWars.Player.Listeners;
 
-import io.github.pako25.towerWars.CustomConfig;
 import io.github.pako25.towerWars.GameManagment.Game;
-import io.github.pako25.towerWars.GameManagment.GameManager;
 import io.github.pako25.towerWars.Player.TWPlayer;
 import io.github.pako25.towerWars.Tower.Tower;
-import io.github.pako25.towerWars.Tower.TowerSchemas.TeslaTower;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
@@ -18,10 +13,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.RayTraceResult;
 
-import java.util.*;
+import java.util.Collection;
 
 public class PlaceTowerListener implements Listener {
 

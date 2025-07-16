@@ -4,7 +4,9 @@ import io.github.pako25.towerWars.Arena.TWMob;
 import io.github.pako25.towerWars.Tower.Tower;
 import org.bukkit.Location;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class StunAbility implements DeathAbility {
 

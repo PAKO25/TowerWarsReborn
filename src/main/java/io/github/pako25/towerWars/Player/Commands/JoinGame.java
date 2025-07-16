@@ -1,14 +1,8 @@
 package io.github.pako25.towerWars.Player.Commands;
 
-import io.github.pako25.towerWars.CustomConfig;
 import io.github.pako25.towerWars.GameManagment.GameManager;
 import io.github.pako25.towerWars.Player.TWPlayer;
 import net.kyori.adventure.text.Component;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 

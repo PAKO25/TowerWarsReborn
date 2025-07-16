@@ -1,7 +1,6 @@
 package io.github.pako25.towerWars.Arena.MobData.MobAbilities;
 
 import io.github.pako25.towerWars.Arena.TWMob;
-import io.github.pako25.towerWars.Arena.Track;
 
 import java.util.Set;
 

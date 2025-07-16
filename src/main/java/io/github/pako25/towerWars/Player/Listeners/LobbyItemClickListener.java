@@ -3,7 +3,6 @@ package io.github.pako25.towerWars.Player.Listeners;
 import io.github.pako25.towerWars.GameManagment.GameManager;
 import io.github.pako25.towerWars.Player.Inventories.StatsInventory;
 import io.github.pako25.towerWars.Player.TWPlayer;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

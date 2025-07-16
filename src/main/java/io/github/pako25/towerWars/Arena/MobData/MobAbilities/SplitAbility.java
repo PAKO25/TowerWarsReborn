@@ -3,7 +3,6 @@ package io.github.pako25.towerWars.Arena.MobData.MobAbilities;
 import io.github.pako25.towerWars.Arena.MobType;
 import io.github.pako25.towerWars.Arena.TWMob;
 import io.github.pako25.towerWars.Arena.Track;
-import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;

@@ -2,7 +2,6 @@ package io.github.pako25.towerWars.Player.Commands;
 
 import io.github.pako25.towerWars.GameManagment.GameManager;
 import io.github.pako25.towerWars.Player.TWPlayer;
-import io.github.pako25.towerWars.TowerWars;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

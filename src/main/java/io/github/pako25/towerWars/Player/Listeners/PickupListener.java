@@ -1,7 +1,6 @@
 package io.github.pako25.towerWars.Player.Listeners;
 
 import io.github.pako25.towerWars.Player.TWPlayer;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

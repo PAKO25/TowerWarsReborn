@@ -11,7 +11,6 @@ import io.github.pako25.towerWars.Player.Commands.MainCommand;
 import io.github.pako25.towerWars.Player.HighlightBlock;
 import io.github.pako25.towerWars.Player.Listeners.*;
 import io.github.pako25.towerWars.Tower.ProjectileDespawnListener;
-import org.bukkit.block.Sign;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TowerWars {

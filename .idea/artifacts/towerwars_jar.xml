@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="towerwars:jar">
+    <output-path>$PROJECT_DIR$/../server/plugins</output-path>
+    <root id="archive" name="towerwars.jar">
+      <element id="module-output" name="towerwars.main" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    </root>
+  </artifact>
+</component>
