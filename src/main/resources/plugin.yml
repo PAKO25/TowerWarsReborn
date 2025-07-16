@@ -1,4 +1,4 @@
-name: towerwars
+name: TowerWarsReborn
 version: '1.0-SNAPSHOT'
 main: io.github.pako25.towerWars.Main
 api-version: '1.21.4'
@@ -6,6 +6,7 @@ commands:
   towerwars:
     description: Main command for TowerWars
     usage: /towerwars
+    aliases: tw
 permissions:
   towerwars.play:
     description: Allows someone to join and leave a game using /towerwars join <arena> and /towerwars leave

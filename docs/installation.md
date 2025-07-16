@@ -1,5 +1,7 @@
 # Installation
 
+> ⚠️ **Disclaimer** — as of currently no builds will be provided since some stuff still need some work. Feel free to compile from source though.
+
 ## Requirements
 
 - **Minecraft Server Version**: Paper 1.21 or higher

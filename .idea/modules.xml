@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/towerwars.main.iml" filepath="$PROJECT_DIR$/.idea/modules/towerwars.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/towerwars.test.iml" filepath="$PROJECT_DIR$/.idea/modules/towerwars.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TowerWarsReborn.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TowerWarsReborn.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TowerWarsReborn.test.iml" filepath="$PROJECT_DIR$/.idea/modules/TowerWarsReborn.test.iml" />
     </modules>
   </component>
 </project>

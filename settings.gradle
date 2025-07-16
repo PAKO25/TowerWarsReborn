@@ -9,4 +9,4 @@ pluginManagement {
         }
     }
 }
-rootProject.name = 'towerwars'
+rootProject.name = 'TowerWarsReborn'
