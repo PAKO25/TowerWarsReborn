@@ -1,0 +1,30 @@
+name: towerwars
+version: '1.0-SNAPSHOT'
+main: io.github.pako25.towerWars.Main
+api-version: '1.21.4'
+commands:
+  towerwars:
+    description: Main command for TowerWars
+    usage: /towerwars
+permissions:
+  towerwars.play:
+    description: Allows someone to join and leave a game using /towerwars join <arena> and /towerwars leave
+    default: true
+  towerwars.forcestart:
+    description: Allows someone to force start a lobby before the countdown has finished (/towerwars forcestart)
+    default: op
+  towerwars.list:
+    description: Allows someone to see all arenas using /towerwars arena list
+    default: true
+  towerwars.configure:
+    description: Allows someone to configure arenas and add new ones using /towerwars configure <arena>
+    default: op
+  towerwars.debug:
+    description: A permission used for debugging by the developer (/towerwars debug & /towerwars increaseincome)
+    default: false
+  towerwars.placesign:
+    description: Allows a player to place interactable signs
+    default: op
+  towerwars.usesign:
+    description: Allows someone to join games using interactable signs
+    default: true

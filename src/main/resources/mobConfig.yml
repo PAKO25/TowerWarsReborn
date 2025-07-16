@@ -1,0 +1,307 @@
+  SILVERFISH:
+    name: "Silverfish"
+    category: basic
+    cost: 5
+    health: 5
+    speed: 2.0
+    income: 1
+    entity_type: SILVERFISH
+    shop_material: STONE
+    evolution: ENDERMITE
+
+  CHICKEN:
+    name: "Chicken"
+    category: basic
+    cost: 10
+    health: 40
+    speed: 3.0
+    income: 2
+    entity_type: CHICKEN
+    shop_material: EGG
+    evolution: PIGGY_BANK
+
+  SHEEP:
+    name: "Sheep"
+    category: basic
+    cost: 44
+    health: 88
+    speed: 2.5
+    income: 4
+    entity_type: SHEEP
+    shop_material: WHITE_WOOL
+    evolution: RAINBOW_SHEEP
+
+  CAVE_SPIDER:
+    name: "Cave Spider"
+    category: basic
+    cost: 50
+    health: 200
+    speed: 3.5
+    income: 8
+    entity_type: CAVE_SPIDER
+    shop_material: SPIDER_EYE
+    evolution: SQUID
+
+  ZOMBIE:
+    name: "Zombie"
+    category: basic
+    cost: 75
+    health: 300
+    speed: 3.0
+    income: 12
+    entity_type: ZOMBIE
+    shop_material: ROTTEN_FLESH
+    evolution: GOLD_ZOMBIE
+
+  WOLF:
+    name: "Wolf"
+    category: basic
+    cost: 100
+    health: 400
+    speed: 4.0
+    income: 14
+    entity_type: WOLF
+    shop_material: BONE
+    evolution: MAD_COW
+
+  BLACK_SPIDER:
+    name: "Black Spider"
+    category: basic
+    cost: 200
+    health: 600
+    speed: 4.0
+    income: 22
+    entity_type: SPIDER
+    shop_material: COBWEB
+    evolution: SPIDER_JOCKEY
+
+  LEATHER_ZOMBIE:
+    name: "Leather Zombie"
+    category: basic
+    cost: 350
+    health: 1400
+    speed: 3.0
+    income: 37
+    entity_type: ZOMBIE
+    shop_material: LEATHER_CHESTPLATE
+    evolution: DIAMOND_ZOMBIE
+
+  RABBIT:
+    name: "Rabbit"
+    category: basic
+    cost: 500
+    health: 2500
+    speed: 4.0
+    income: 50
+    entity_type: RABBIT
+    shop_material: RABBIT_FOOT
+    evolution: WILD_HORSE
+
+  PRIEST:
+    name: "Priest"
+    category: basic
+    cost: 1000
+    health: 4000
+    speed: 3.0
+    income: 100
+    entity_type: WITCH
+    shop_material: APPLE
+    evolution: HIGH_PRIEST
+
+  ZOMBIE_PIGMAN:
+    name: "Zombie Pigman"
+    category: basic
+    cost: 2000
+    health: 8000
+    speed: 3.0
+    income: 200
+    entity_type: ZOMBIFIED_PIGLIN
+    shop_material: PORKCHOP
+    evolution: WITHER_SKELETON
+
+  WILD_CAT:
+    name: "Wild Cat"
+    category: basic
+    cost: 5000
+    health: 10000
+    speed: 6.0
+    income: 450
+    entity_type: OCELOT
+    shop_material: COD
+    evolution: RUNNING_IRON_GOLEM
+
+  CREEPER:
+    name: "Creeper"
+    category: basic
+    cost: 10000
+    health: 40000
+    speed: 4.0
+    income: 900
+    entity_type: CREEPER
+    shop_material: CREEPER_SPAWN_EGG
+    evolution: CHARGED_CREEPER
+
+  ENDERMITE:
+    name: "Endermite"
+    category: advanced
+    cost: 500
+    health: 2000
+    speed: 3.0
+    income: 50
+    repay_time: 10
+    entity_type: ENDERMITE
+    shop_material: END_PORTAL_FRAME
+
+  PIGGY_BANK:
+    name: "Piggy Bank"
+    category: advanced
+    cost: 1000
+    health: 2000
+    speed: 4.0
+    income: 150
+    entity_type: PIG
+    shop_material: GOLD_INGOT
+
+  RAINBOW_SHEEP:
+    name: "Rainbow Sheep"
+    category: advanced
+    cost: 2000
+    health: 5000
+    speed: 8.0
+    income: 200
+    entity_type: SHEEP
+    shop_material: YELLOW_WOOL
+
+  SQUID:
+    name: "Squid"
+    category: advanced
+    cost: 5000
+    health: 10000
+    speed: 4.5
+    income: 450
+    entity_type: SQUID
+    shop_material: INK_SAC
+
+  GOLD_ZOMBIE:
+    name: "Gold Zombie"
+    category: advanced
+    cost: 10000
+    health: 40000
+    speed: 4.0
+    income: 900
+    entity_type: ZOMBIE
+    shop_material: GOLDEN_CHESTPLATE
+
+  MAD_COW:
+    name: "Mad Cow"
+    category: advanced
+    cost: 15000
+    health: 60000
+    speed: 5.0
+    income: 1300
+    entity_type: COW
+    shop_material: LEATHER
+
+  SPIDER_JOCKEY:
+    name: "Spider Jockey"
+    category: advanced
+    cost: 20000
+    health: 60000
+    speed: 5.0
+    income: 1500
+    repay_time: 13.33
+    entity_type: SPIDER
+    shop_material: CARROT_ON_A_STICK
+
+  DIAMOND_ZOMBIE:
+    name: "Diamond Zombie"
+    category: advanced
+    cost: 30000
+    health: 120000
+    speed: 4.0
+    income: 1900
+    entity_type: ZOMBIE
+    shop_material: DIAMOND_CHESTPLATE
+
+  WILD_HORSE:
+    name: "Wild Horse"
+    category: advanced
+    cost: 40000
+    health: 150000
+    speed: 6.0
+    income: 2200
+    entity_type: HORSE
+    shop_material: IRON_HORSE_ARMOR
+
+  HIGH_PRIEST:
+    name: "High Priest"
+    category: advanced
+    cost: 60000
+    health: 200000
+    speed: 5.0
+    income: 2800
+    repay_time: 21.43
+    entity_type: WITCH
+    shop_material: GOLDEN_APPLE
+
+  WITHER_SKELETON:
+    name: "Wither Skeleton"
+    category: advanced
+    cost: 80000
+    health: 250000
+    speed: 5.0
+    income: 3200
+    entity_type: WITHER_SKELETON
+    shop_material: WITHER_SKELETON_SKULL
+
+  RUNNING_IRON_GOLEM:
+    name: "Running Iron Golem"
+    category: advanced
+    cost: 100000
+    health: 300000
+    speed: 8.0
+    income: 3500
+    entity_type: IRON_GOLEM
+    shop_material: IRON_BLOCK
+
+  CHARGED_CREEPER:
+    name: "Charged Creeper"
+    category: advanced
+    cost: 130000
+    health: 350000
+    speed: 8.0
+    income: 3800
+    entity_type: CREEPER
+    shop_material: CREEPER_HEAD
+
+  GHAST:
+    name: "Ghast"
+    category: basic
+    cost: 50000
+    health: 900000
+    speed: 2.5
+    income: 0
+    entity_type: GHAST
+    shop_material: GHAST_TEAR
+    evolution: DEATH_RIDER
+
+  DEATH_RIDER:
+    name: "Death Rider"
+    category: advanced
+    cost: 500000
+    health: 1000000
+    speed: 8.0
+    income: 0
+    entity_type: SKELETON_HORSE
+    shop_material: SOUL_SAND
+
+  MINI_ZOMBIE:
+      name: "Mini Zombie"
+      category: advanced
+      cost: 40
+      health: 75
+      speed: 3.0
+      income: 4
+      entity_type: ZOMBIE
+      shop_material: ROTTEN_FLESH
+      unsummonable: true
