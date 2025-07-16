@@ -61,6 +61,10 @@ public class EditorClickListener implements Listener {
                 remakeRepeater(twPlayer.getPlayer().getInventory().getItem(1), arenaEditor);
                 break;
             case CLOCK:
+                if (twPlayer.getPlayer().isConversing()) {
+                    twPlayer.getPlayer().sendMessage(Component.text("Answer first"));
+                    return;
+                }
                 ArenaEditor.closeInstanceByPlayer(twPlayer, true);
                 break;
         }
@@ -110,6 +114,10 @@ public class EditorClickListener implements Listener {
                 remakeRepeater(twPlayer.getPlayer().getInventory().getItem(1), arenaEditor);
                 break;
             case CLOCK:
+                if (twPlayer.getPlayer().isConversing()) {
+                    twPlayer.getPlayer().sendMessage(Component.text("Answer first"));
+                    return;
+                }
                 if (!player.isSneaking()) {
                     player.sendMessage(Component.text("To discard changes right click while sneaking.", NamedTextColor.YELLOW));
                     return;

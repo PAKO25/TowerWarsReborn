@@ -23,11 +23,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class TWPlayer {
     private static final Map<UUID, TWPlayer> TWPlayerMap = new HashMap<>();
@@ -296,6 +295,26 @@ public class TWPlayer {
         if (stock > 30) stock = 30;
         if (summonMobInventory != null && !summonMobInventory.getInventory().getViewers().isEmpty())
             summonMobInventory.loadInventory();
+    }
+
+    public void freeze() {
+        player.setInvulnerable(true);
+        List<PotionEffect> effects = List.of(
+                new PotionEffect(PotionEffectType.SLOWNESS, PotionEffect.INFINITE_DURATION, 255, false, false, false),
+                new PotionEffect(PotionEffectType.BLINDNESS, PotionEffect.INFINITE_DURATION, 1, false, false, false),
+                new PotionEffect(PotionEffectType.JUMP_BOOST, PotionEffect.INFINITE_DURATION, 255, false, false, false)
+        );
+        player.addPotionEffects(effects);
+        player.setGameMode(GameMode.ADVENTURE);
+    }
+
+    public void unfreeze() {
+        player.setInvulnerable(false);
+        player.removePotionEffect(PotionEffectType.SLOWNESS);
+        player.removePotionEffect(PotionEffectType.BLINDNESS);
+        player.removePotionEffect(PotionEffectType.JUMP_BOOST);
+        if (player.getPreviousGameMode() != null)
+            player.setGameMode(player.getPreviousGameMode());
     }
 
     public int getIncome() {

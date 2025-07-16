@@ -66,6 +66,10 @@ public class ArenaCommand implements SubcommandHandler {
                 break;
 
             case "saveconfiguration":
+                if (twPlayer.getPlayer().isConversing()) {
+                    twPlayer.getPlayer().sendMessage(Component.text("Answer first"));
+                    return;
+                }
                 if (!twPlayer.getPlayer().hasPermission("towerwars.configure")) {
                     twPlayer.getPlayer().sendMessage(Component.text("No permission."));
                     return;
@@ -82,6 +86,10 @@ public class ArenaCommand implements SubcommandHandler {
                 break;
 
             case "discardconfiguration":
+                if (twPlayer.getPlayer().isConversing()) {
+                    twPlayer.getPlayer().sendMessage(Component.text("Answer first"));
+                    return;
+                }
                 if (!twPlayer.getPlayer().hasPermission("towerwars.configure")) {
                     twPlayer.getPlayer().sendMessage(Component.text("No permission."));
                     return;

@@ -100,11 +100,6 @@ public class ArenaEditor {
 
     public void showEditorOptions() {
         twPlayer.openArenaEditorInventory(this);
-        //editor options inventory -> prikaže kaj je že in kaj še ni konfigurirano + opcija za savanje
-        //ob izbiri opcije ti cleara inventory in da prave iteme + item za editor options
-        //pol še samo naredim pravo logiko za vsak itrem posebej (tak ga lahko ma samo ko edita pravo stvar)
-        //mogoče še dodam kocke na katere lahko placaš towere v konfiguracijo
-        //++pazi da ne more sam zapret inventorija!
     }
 
     private void enterEditingMode() {
@@ -191,7 +186,6 @@ public class ArenaEditor {
         String towerPlaceMaterialRaw = config.getCustomFile().getString("towerPlaceMaterial");
         if (towerPlaceMaterialRaw != null) {
             towerPlaceMaterial = Material.matchMaterial(towerPlaceMaterialRaw, false);
-            if (towerPlaceMaterial == null) towerPlaceMaterial = Material.matchMaterial(towerPlaceMaterialRaw, true);
         }
     }
 
@@ -549,7 +543,7 @@ public class ArenaEditor {
                 Component.text("Track bounds", NamedTextColor.RED).appendNewline().appendNewline().append(Component.text("Track bounds are 2-dimensional 'corners' of a track. The Y coordinate is ignored, therefore tracks can not be stacked on top of one another. Towers can only be placed INSIDE track bounds.", NamedTextColor.BLACK)),
                 Component.text("The bounds must form a rectangle. They need to be set only for one track spawn and will be automatically configured for all other tracks. The same applies to path waypoints.", NamedTextColor.BLACK).appendNewline().append(Component.text("(read page 3)", NamedTextColor.BLACK)),
                 Component.text("Paths", NamedTextColor.RED).appendNewline().appendNewline().append(Component.text("Paths are made up of waypoints that tell the mobs where to go. Mobs can only move in a straight line. There can be multiple paths in a single track", NamedTextColor.BLACK)),
-                Component.text("Path waypoints", NamedTextColor.RED).appendNewline().appendNewline().append(Component.text("Waypoints need to be set in the correct order (start to end). Between two neighbouring waypoints at most one coordinate direction can differ. They need to lay on a plane (singular Y).", NamedTextColor.BLACK))
+                Component.text("Path waypoints", NamedTextColor.RED).appendNewline().appendNewline().append(Component.text("Waypoints need to be set in the correct order (start to end). Between two neighbouring waypoints at most one coordinate direction can differ.", NamedTextColor.BLACK))
         );
         book.setItemMeta(bookMeta);
         instructionsBook = book;

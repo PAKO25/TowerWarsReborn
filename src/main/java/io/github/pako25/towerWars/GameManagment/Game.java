@@ -83,7 +83,6 @@ public class Game {
         String towerPlaceMaterialRaw = config.getString("towerPlaceMaterial");
         if (towerPlaceMaterialRaw != null) {
             towerPlaceMaterial = Material.matchMaterial(towerPlaceMaterialRaw, false);
-            if (towerPlaceMaterial == null) towerPlaceMaterial = Material.matchMaterial(towerPlaceMaterialRaw, true);
         }
         if (towerPlaceMaterial == null) {
             throw new IllegalArgumentException("Tower place material field has an invalid value!");

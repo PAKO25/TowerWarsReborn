@@ -2,7 +2,10 @@ package io.github.pako25.towerWars.Editor;
 
 import io.github.pako25.towerWars.Player.TWPlayer;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.title.Title;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.conversations.Conversation;
@@ -317,20 +320,22 @@ public class EditorOptionsInventory implements InventoryHolder {
                         try {
                             if (input == null) throw new IllegalArgumentException();
                             Material newMaterial = Material.matchMaterial(input, false);
-                            if (newMaterial == null) newMaterial = Material.matchMaterial(input, true);
                             if (newMaterial == null || !newMaterial.isBlock()) throw new IllegalArgumentException();
                             arenaEditor.setTowerPlaceMaterial(newMaterial);
                             twPlayer.getPlayer().sendMessage("New material set successfully.");
                         } catch (IllegalArgumentException e) {
                             twPlayer.getPlayer().sendMessage(Component.text("The material you provided is invalid."));
-                            twPlayer.getPlayer().sendMessage(Component.text("The list of available materials can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html"));
+                            twPlayer.getPlayer().sendMessage(Component.text("The list of available materials can be found ", NamedTextColor.WHITE).append(Component.text("HERE", NamedTextColor.RED).clickEvent(ClickEvent.openUrl("https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html")).hoverEvent(HoverEvent.showText(Component.text("https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html")))));
                         }
+                        twPlayer.unfreeze();
                         return END_OF_CONVERSATION;
                     }
                 };
                 Conversation conversation = new Conversation(plugin, twPlayer.getPlayer(), prompt);
                 twPlayer.getPlayer().beginConversation(conversation);
                 twPlayer.getPlayer().closeInventory();
+                twPlayer.getPlayer().showTitle(Title.title(Component.text("Write material in chat"), Component.empty(), Title.DEFAULT_TIMES));
+                twPlayer.freeze();
                 break;
         }
         inventory.clear();

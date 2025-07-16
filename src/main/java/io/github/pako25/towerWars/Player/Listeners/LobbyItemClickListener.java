@@ -1,8 +1,10 @@
 package io.github.pako25.towerWars.Player.Listeners;
 
 import io.github.pako25.towerWars.GameManagment.GameManager;
+import io.github.pako25.towerWars.GameManagment.PlayerStats;
 import io.github.pako25.towerWars.Player.Inventories.StatsInventory;
 import io.github.pako25.towerWars.Player.TWPlayer;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,7 +29,11 @@ public class LobbyItemClickListener implements Listener {
             GameManager.getInstance().leaveQueue(twPlayer);
         }
         if (item.getType() == Material.DARK_OAK_SIGN) {
-            player.openInventory(new StatsInventory(twPlayer).getInventory());
+            if (PlayerStats.trackingEnabled) {
+                player.openInventory(new StatsInventory(twPlayer).getInventory());
+            } else {
+                player.sendMessage(Component.text("Stat tracking is disabled."));
+            }
         }
     }
 }
