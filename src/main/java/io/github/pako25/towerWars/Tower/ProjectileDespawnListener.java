@@ -11,10 +11,11 @@ import java.util.UUID;
 
 public class ProjectileDespawnListener implements Listener {
 
-    private  Set<UUID> entitiesUUIDSet = new HashSet<>();
+    private final Set<UUID> entitiesUUIDSet = new HashSet<>();
     private static ProjectileDespawnListener projectileDespawnListener;
 
-    private ProjectileDespawnListener() {}
+    private ProjectileDespawnListener() {
+    }
 
     public static ProjectileDespawnListener getInstance() {
         if (projectileDespawnListener == null) {

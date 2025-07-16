@@ -59,13 +59,15 @@ public class VillagerTower extends Tower {
     }
 
     @Override
-    public void attackMobs(Set<TWMob> mobSet) {}
+    public void attackMobs(Set<TWMob> mobSet) {
+    }
 
     public void removeFromProtection(Tower tower) {
         buffedTowers.remove(tower);
     }
 
-    public void animateAttack(TWMob mob) {}
+    public void animateAttack(TWMob mob) {
+    }
 
     public void cleanup() {
         for (Tower tower : buffedTowers) {
@@ -76,6 +78,6 @@ public class VillagerTower extends Tower {
 
     @Override
     protected void setSlownessIndicatorHeight() {
-        slownessIndicatorLocation = location.clone().add(0,3, 0);
+        slownessIndicatorLocation = location.clone().add(0, 3, 0);
     }
 }

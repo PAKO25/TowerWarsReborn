@@ -23,7 +23,7 @@ import java.util.*;
 
 public class Track {
     private final int maxTowers = 60;
-    private Location trackSpawn;
+    private final Location trackSpawn;
     private final Map<Location, Tower> placedTowers = new HashMap<>();
     private final ArrayList<ArrayList<Vector>> paths = new ArrayList<>();
     private final Set<TWMob> activeMobs = new HashSet<>();
@@ -99,7 +99,8 @@ public class Track {
     public void summonMob(MobType mobType, TWPlayer summoner) {
         Random random = new Random();
         int index = random.nextInt(paths.size());
-        if (mobType == MobType.GHAST) index = (paths.size() / 2) + 1; //vse arena imajo liho število poti, drugače je pač zamaknjen
+        if (mobType == MobType.GHAST)
+            index = (paths.size() / 2) + 1; //vse arena imajo liho število poti, drugače je pač zamaknjen
         ArrayList<Vector> path = paths.get(index);
 
         TWMob mob = MobBuilder.buildMob(this, path, mobType, summoner);
@@ -231,7 +232,7 @@ public class Track {
     }
 
     public void cleanupSoldTower(Tower tower) {
-        twPlayer.increaseCoin(tower.getCost()/2);
+        twPlayer.increaseCoin(tower.getCost() / 2);
         placedTowers.remove(tower.getLocation());
     }
 
@@ -299,9 +300,11 @@ public class Track {
     public TWPlayer getTwPlayer() {
         return twPlayer;
     }
+
     public MobStates getMobStates() {
         return mobStates;
     }
+
     public Game getGame() {
         return game;
     }
@@ -309,6 +312,7 @@ public class Track {
     public boolean isAlive() {
         return alive;
     }
+
     public void gainLive(NamedTextColor fromColor, String causeName) {
         String colorName = fromColor.toString().toUpperCase();
         if (colorName.equals("GOLD")) colorName = "ORANGE";
@@ -330,12 +334,15 @@ public class Track {
         ArrayList<Vector> path = paths.get(index);
         return path;
     }
+
     public boolean hasSpaceLeft() {
         return placedTowers.size() < maxTowers;
     }
+
     public void updateSidebar() {
         twPlayer.updateSidebar(true);
     }
+
     public void setLives(int lives) {
         this.lives = lives;
     }

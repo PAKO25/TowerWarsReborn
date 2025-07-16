@@ -118,7 +118,8 @@ public class ArenaCommand implements SubcommandHandler {
             return availableSubcommands.stream().filter(s -> s.toLowerCase().startsWith(args[0].toLowerCase())).toList();
         }
 
-        if (args.length != 0 && args[0].equals("configure") && twPlayer.getPlayer().hasPermission("towerwars.configure")) return GameManager.getInstance().getAllArenas().stream().filter(arenaName -> GameManager.getInstance().isArenaFree(arenaName) && arenaName.toLowerCase().startsWith(args[1].toLowerCase())).toList();
+        if (args.length != 0 && args[0].equals("configure") && twPlayer.getPlayer().hasPermission("towerwars.configure"))
+            return GameManager.getInstance().getAllArenas().stream().filter(arenaName -> GameManager.getInstance().isArenaFree(arenaName) && arenaName.toLowerCase().startsWith(args[1].toLowerCase())).toList();
 
         return List.of();
     }

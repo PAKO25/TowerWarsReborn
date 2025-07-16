@@ -65,6 +65,7 @@ public class EditorClickListener implements Listener {
                 break;
         }
     }
+
     @EventHandler
     public void onPlayerRightClick(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) {
@@ -117,6 +118,7 @@ public class EditorClickListener implements Listener {
                 break;
         }
     }
+
     private void remakeRepeater(ItemStack repeater, ArenaEditor arenaEditor) {
         if (repeater == null) return;
         ItemMeta repeaterMeta = repeater.getItemMeta();

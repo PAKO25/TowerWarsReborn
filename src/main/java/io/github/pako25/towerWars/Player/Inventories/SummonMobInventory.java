@@ -58,7 +58,7 @@ public class SummonMobInventory implements InventoryHolder {
             Material material = mobState.getMaterial();
             if (disabled) material = Material.BARRIER;
 
-            ItemStack item = new ItemStack(material, disabled ? 1 : (twPlayer.getStock() > 0 ? twPlayer.getStock() : 1) );
+            ItemStack item = new ItemStack(material, disabled ? 1 : (twPlayer.getStock() > 0 ? twPlayer.getStock() : 1));
             ItemMeta meta = item.getItemMeta();
 
             if (meta != null) {

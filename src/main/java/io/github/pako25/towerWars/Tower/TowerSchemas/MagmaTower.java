@@ -23,19 +23,19 @@ public class MagmaTower extends Tower {
     }
 
     public void spawn() {
-        MagmaCube magma = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+        MagmaCube magma = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
         magma.setSize(2);
         entities.add(magma);
         if (level > 1 && prestige == 0) {
-            MagmaCube magma2 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+            MagmaCube magma2 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
             magma.addPassenger(magma2);
             magma2.setSize(1);
             entities.add(magma2);
             if (level == 3) {
-                MagmaCube magma3 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+                MagmaCube magma3 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
                 magma2.addPassenger(magma3);
                 magma3.setSize(1);
-                MagmaCube magma4 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+                MagmaCube magma4 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
                 magma3.addPassenger(magma4);
                 magma4.setSize(1);
                 entities.add(magma3);
@@ -43,13 +43,13 @@ public class MagmaTower extends Tower {
             }
         }
         if (prestige == infernalTowerPrestige) {
-            MagmaCube magma2 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+            MagmaCube magma2 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
             magma.addPassenger(magma2);
             magma2.setSize(2);
-            MagmaCube magma3 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+            MagmaCube magma3 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
             magma2.addPassenger(magma3);
             magma3.setSize(2);
-            MagmaCube magma4 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.MAGMA_CUBE);
+            MagmaCube magma4 = (MagmaCube) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.MAGMA_CUBE);
             magma3.addPassenger(magma4);
             magma4.setSize(2);
             entities.add(magma2);
@@ -68,7 +68,7 @@ public class MagmaTower extends Tower {
         Set<TWMob> inAttackRadius = defaultAttackMobs(mobSet);
         for (TWMob mob : inAttackRadius) {
             boolean success = mob.takeDamage(damage, this, AttackType.AOE);
-            if (success) damageDealt+=damage;
+            if (success) damageDealt += damage;
             if (prestige == infernalTowerPrestige) {
                 mob.applyBurn(5);
             }
@@ -91,13 +91,14 @@ public class MagmaTower extends Tower {
         ParticleTrail.spawnParticleTrail(source, goal, 1, 5, Particle.SMOKE);
     }
 
-    public void cleanup() {}
+    public void cleanup() {
+    }
 
     @Override
     protected void setSlownessIndicatorHeight() {
         int height = 3;
         if (level == 3) height = 4;
         if (prestige == infernalTowerPrestige) height = 5;
-        slownessIndicatorLocation = location.clone().add(0,height, 0);
+        slownessIndicatorLocation = location.clone().add(0, height, 0);
     }
 }

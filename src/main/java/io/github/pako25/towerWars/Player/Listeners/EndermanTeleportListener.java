@@ -11,10 +11,11 @@ import java.util.UUID;
 
 public class EndermanTeleportListener implements Listener {
 
-    private static Set<UUID> uuidSet = new HashSet<>();
+    private static final Set<UUID> uuidSet = new HashSet<>();
     private static EndermanTeleportListener endermanTeleportListener;
 
-    private EndermanTeleportListener() {}
+    private EndermanTeleportListener() {
+    }
 
     public static EndermanTeleportListener getListener() {
         if (endermanTeleportListener == null) {

@@ -21,7 +21,7 @@ import org.bukkit.util.Vector;
 import java.util.*;
 
 public class ArenaEditor {
-    private static List<ArenaEditor> EditorList = new ArrayList<>();
+    private static final List<ArenaEditor> EditorList = new ArrayList<>();
     private final CustomConfig config;
     private final List<NamedTextColor> availableColors;
     private final Vector[] trackBounds = new Vector[4];
@@ -88,7 +88,7 @@ public class ArenaEditor {
             config.reload();
             loadExistingArena();
         } else {
-            twPlayer.getPlayer().sendMessage(Component.text("Creating a new arena '" + arenaName +"'"));
+            twPlayer.getPlayer().sendMessage(Component.text("Creating a new arena '" + arenaName + "'"));
             CustomConfig.setup(arenaName);
             config = CustomConfig.getCustomConfig(arenaName);
             GameManager.getInstance().addArenaToAllArenas(arenaName);
@@ -111,7 +111,7 @@ public class ArenaEditor {
         twPlayer.setInEditor(true);
         twPlayer.setActiveArenaEditor(this);
         if (!trackSpawns.isEmpty()) {
-            twPlayer.getPlayer().teleport(trackSpawns.getFirst().clone().add(0, 1,0));
+            twPlayer.getPlayer().teleport(trackSpawns.getFirst().clone().add(0, 1, 0));
         }
         twPlayer.getPlayer().setGameMode(GameMode.CREATIVE);
         giveDefaultInventory();
@@ -257,9 +257,11 @@ public class ArenaEditor {
         twPlayer.getPlayer().getInventory().setItem(6, instructionsBook);
         twPlayer.getPlayer().getInventory().setItem(8, saveItem);
     }
+
     public Location removeLastTrackSpawn() {
         return trackSpawns.removeLast();
     }
+
     public void addNewTrackSpawn(Location location) {
         if (isWorldInvalid(location.getWorld().getName())) return;
         if (trackSpawns.contains(location)) {
@@ -269,6 +271,7 @@ public class ArenaEditor {
         trackSpawns.add(location);
         twPlayer.getPlayer().sendMessage(Component.text("Added a new track spawn: " + location.toVector()));
     }
+
     public Location removeTrackSpawn(Location location) {
         Iterator<Location> iterator = trackSpawns.iterator();
         while (iterator.hasNext()) {
@@ -280,6 +283,7 @@ public class ArenaEditor {
         }
         return null;
     }
+
     public void addNewTrackBound(Location location) {
         if (isWorldInvalid(location.getWorld().getName())) return;
         try {
@@ -292,7 +296,7 @@ public class ArenaEditor {
                         return;
                     }
                     continue;
-                };
+                }
                 trackBounds[i] = trackBound;
                 break;
             }
@@ -300,6 +304,7 @@ public class ArenaEditor {
             twPlayer.getPlayer().sendMessage(Component.text("Configure a track spawn first!"));
         }
     }
+
     public Vector removeLastTrackBound() {
         for (int i = trackBounds.length - 1; i > -1; i--) {
             if (trackBounds[i] != null) {
@@ -310,6 +315,7 @@ public class ArenaEditor {
         }
         return null;
     }
+
     public Vector removeTrackBound(Location location) {
         try {
             Location trackSpawn = trackSpawns.getFirst();
@@ -326,6 +332,7 @@ public class ArenaEditor {
         }
         return null;
     }
+
     public void removeSelectedPath() {
         if (paths.isEmpty()) {
             twPlayer.getPlayer().sendMessage(Component.text("No paths left!"));
@@ -336,11 +343,14 @@ public class ArenaEditor {
             int pathSize = paths.get(selectedPathIndex).size();
             paths.remove(selectedPathIndex);
             twPlayer.getPlayer().sendMessage(Component.text("Removed path with " + pathSize + " waypoints."));
-        } catch (IndexOutOfBoundsException e) { selectedPathIndex = 0; }
+        } catch (IndexOutOfBoundsException e) {
+            selectedPathIndex = 0;
+        }
 
         selectedPathIndex--;
         if (selectedPathIndex < 0) selectedPathIndex = 0;
     }
+
     public void addNewWaypoint(Location location) {
         if (isWorldInvalid(location.getWorld().getName())) return;
         if (paths.isEmpty()) {
@@ -362,6 +372,7 @@ public class ArenaEditor {
             twPlayer.getPlayer().sendMessage(Component.text("An error occurred. IndexOutOfBounds in addNewWaypoint. Contact the developer."));
         }
     }
+
     public void removeWaypoint(Location location) {
         if (paths.isEmpty()) return;
         if (isWorldInvalid(location.getWorld().getName())) return;
@@ -370,13 +381,14 @@ public class ArenaEditor {
             Vector waypoint = location.clone().subtract(trackSpawn).toVector();
             boolean existed = paths.get(selectedPathIndex).remove(waypoint);
             if (existed)
-                twPlayer.getPlayer().sendMessage(Component.text("Removed waypoint: " + waypoint.toString()));
+                twPlayer.getPlayer().sendMessage(Component.text("Removed waypoint: " + waypoint));
         } catch (NoSuchElementException e) {
             twPlayer.getPlayer().sendMessage(Component.text("Configure a track spawn first!"));
         } catch (IndexOutOfBoundsException e) {
             twPlayer.getPlayer().sendMessage(Component.text("An error occurred. IndexOutOfBounds in removeNewWaypoint. Contact the developer."));
         }
     }
+
     private boolean isWorldInvalid(String worldName) {
         if (this.worldName == null) {
             twPlayer.getPlayer().sendMessage(Component.text("First set the world name!", NamedTextColor.RED));
@@ -388,6 +400,7 @@ public class ArenaEditor {
         }
         return false;
     }
+
     public void changeSelectedPathIndex() {
         if (paths.isEmpty()) {
             selectedPathIndex = 0;
@@ -400,6 +413,7 @@ public class ArenaEditor {
         }
         twPlayer.getPlayer().sendMessage(Component.text("Selected path " + selectedPathIndex + " with " + paths.get(selectedPathIndex).size() + " waypoints."));
     }
+
     private boolean verifyConfigurationValidity() {
         if (worldName == null) return false;
         if (towerPlaceMaterial == null) return false;
@@ -415,7 +429,7 @@ public class ArenaEditor {
         }
         for (Vector v1 : trackBounds) {
             int inlineCounter = 0;
-            for (Vector v2: trackBounds) {
+            for (Vector v2 : trackBounds) {
                 if (!v1.equals(v2)) {
                     if (areVectorsDifferentInOneDimension(v1, v2)) inlineCounter++;
                 }
@@ -439,27 +453,35 @@ public class ArenaEditor {
         }
         return true;
     }
+
     private boolean isPlayerEditor(UUID uuid) {
         return uuid.equals(twPlayer.getPlayer().getUniqueId());
     }
+
     public List<NamedTextColor> getAvailableColors() {
         return availableColors;
     }
+
     public Vector[] getTrackBounds() {
         return trackBounds;
     }
+
     public ArrayList<ArrayList<Vector>> getPaths() {
         return paths;
     }
+
     public List<Location> getTrackSpawns() {
         return trackSpawns;
     }
+
     public int getSelectedPathIndex() {
         return selectedPathIndex;
     }
+
     public String getWorldName() {
         return worldName;
     }
+
     public Location getLobbySpawn() {
         return lobbySpawn;
     }
@@ -467,6 +489,7 @@ public class ArenaEditor {
     public Material getTowerPlaceMaterial() {
         return towerPlaceMaterial;
     }
+
     public void setTowerPlaceMaterial(Material material) {
         towerPlaceMaterial = material;
     }
@@ -474,9 +497,11 @@ public class ArenaEditor {
     public void setLobbySpawn(Location lobbySpawn) {
         this.lobbySpawn = lobbySpawn;
     }
+
     public boolean isArenaEnabled() {
         return enabled;
     }
+
     private boolean areVectorsDifferentInOneDimension(Vector v1, Vector v2) {
         //excluding Y
         int differentDimensions = 0;
@@ -484,6 +509,7 @@ public class ArenaEditor {
         if (v1.getZ() != v2.getZ()) differentDimensions++;
         return differentDimensions == 1;
     }
+
     public void setEnabled(boolean enabled) {
         if (enabled) {
             enabled = verifyConfigurationValidity();
@@ -493,12 +519,15 @@ public class ArenaEditor {
         }
         this.enabled = enabled;
     }
+
     public void setWorldName(String worldName) {
         this.worldName = worldName;
     }
+
     public String getArenaName() {
         return arenaName;
     }
+
     public int getTrackBoundsLength() {
         int counter = 0;
         for (Vector bound : trackBounds) {
@@ -506,6 +535,7 @@ public class ArenaEditor {
         }
         return counter;
     }
+
     public static void generateInstructionsBook() {
         if (instructionsBook != null) return;
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);

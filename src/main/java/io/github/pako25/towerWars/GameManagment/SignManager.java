@@ -51,7 +51,7 @@ public class SignManager implements Listener {
                 if (location.getBlock().getState() instanceof Sign) {
                     managedSigns.add(location);
                 } else {
-                    TowerWars.getPlugin().getLogger().warning("A sign seems to have been removed at: " + location.toString());
+                    TowerWars.getPlugin().getLogger().warning("A sign seems to have been removed at: " + location);
                 }
             }
         } catch (Exception e) {
@@ -129,7 +129,7 @@ public class SignManager implements Listener {
 
         String arenaName = PlainTextComponentSerializer.plainText().serialize(e.line(1));
         if (!GameManager.getInstance().arenaExists(arenaName)) {
-            e.getPlayer().sendMessage(Component.text("The arena \"" +  arenaName + "\" doesn't exist."));
+            e.getPlayer().sendMessage(Component.text("The arena \"" + arenaName + "\" doesn't exist."));
             return;
         }
 

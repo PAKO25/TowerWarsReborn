@@ -4,7 +4,7 @@ import io.github.pako25.towerWars.Arena.TWMob;
 
 import java.util.Set;
 
-public class HealAbility implements  TickAbility {
+public class HealAbility implements TickAbility {
 
     private final float factor;
     private final int range;

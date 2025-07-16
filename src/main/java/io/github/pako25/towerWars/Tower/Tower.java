@@ -65,9 +65,13 @@ public abstract class Tower {
     }
 
     abstract public void spawn();
+
     public abstract void attackMobs(Set<TWMob> mobSet);
+
     public abstract void animateAttack(TWMob mob);
+
     public abstract void cleanup();
+
     protected abstract void setSlownessIndicatorHeight();
 
 
@@ -166,7 +170,7 @@ public abstract class Tower {
             showUpgradableText();
         }
         if (stunTimer > 0) {
-            stunTimer-=0.25F;
+            stunTimer -= 0.25F;
             showStunEffectParticles();
             return true;
         }
@@ -195,12 +199,13 @@ public abstract class Tower {
     }
 
     protected void resetCooldown() {
-        cooldown = reload/reloadBoost;
+        cooldown = reload / reloadBoost;
     }
 
     private void showSlownessIndicator() {
         slownessIndicatorLocation.getBlock().setType(Material.COBWEB);
     }
+
     private void hideSlownessIndicator() {
         slownessIndicatorLocation.getBlock().setType(Material.AIR);
     }
@@ -379,6 +384,7 @@ public abstract class Tower {
     public int getShots() {
         return shots;
     }
+
     public int getDamage() {
         return damage;
     }
@@ -390,6 +396,7 @@ public abstract class Tower {
     public int getSplash() {
         return splash;
     }
+
     public int getRange() {
         return range;
     }
@@ -397,6 +404,7 @@ public abstract class Tower {
     public Location getLocation() {
         return location;
     }
+
     public void correctDamageDealt(int correction) {
         damageDealt = damageDealt - correction;
     }
@@ -404,28 +412,32 @@ public abstract class Tower {
     public int getCost() {
         return cost;
     }
+
     public void increaseKillCount() {
         kills++;
     }
+
     public void applySlowness(int duration, float amplifier) {
         if (immuneToDebuffs) return;
         slownessAmplifier = 1 + amplifier;
         slownessTimer = duration;
         showSlownessIndicator();
     }
+
     public void applyStun(int duration) {
         if (immuneToDebuffs) return;
         stunTimer = duration;
     }
+
     public void applyBlindness(int duration, float amplifier) {
         if (immuneToDebuffs) return;
         blindnessTimer = duration;
         blindnessAmplifier = amplifier;
     }
+
     public boolean isEntityInTower(Mob mob) {
         return entities.contains(mob);
     }
-
 
 
     @Override

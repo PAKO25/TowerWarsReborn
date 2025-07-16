@@ -50,7 +50,8 @@ public class GameQueue {
         }
 
         List<?> spawnsRaw = cfg.getList("trackSpawns");
-        if (spawnsRaw == null) throw new IllegalArgumentException("Missing 'trackSpawns' section in " + arenaName + ".yml");
+        if (spawnsRaw == null)
+            throw new IllegalArgumentException("Missing 'trackSpawns' section in " + arenaName + ".yml");
         maxPlayers = spawnsRaw.size();
 
         addPlayer(player);

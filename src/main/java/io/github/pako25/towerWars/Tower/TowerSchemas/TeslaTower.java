@@ -94,7 +94,7 @@ public class TeslaTower extends Tower {
         }
 
         boolean success = targetLock.takeDamage((int) (damage * (1 + damageMultiplier)), this, AttackType.NORMAL);
-        if (success) damageDealt+=(int) (damage * (1 + damageMultiplier));
+        if (success) damageDealt += (int) (damage * (1 + damageMultiplier));
         shots++;
 
         if (prestige == 0) {
@@ -116,7 +116,8 @@ public class TeslaTower extends Tower {
         resetCooldown();
     }
 
-    public void animateAttack(TWMob mob) {}
+    public void animateAttack(TWMob mob) {
+    }
 
     public void nothingInRange() {
         damageMultiplier = 0; //za lightning prestige
@@ -177,7 +178,7 @@ public class TeslaTower extends Tower {
         int height = 3;
         if (level == 3) height = 5;
         if (level == 4) height = 5;
-        slownessIndicatorLocation = location.clone().add(0,height, 0);
+        slownessIndicatorLocation = location.clone().add(0, height, 0);
     }
 
 
@@ -213,9 +214,9 @@ public class TeslaTower extends Tower {
                 ", valid=" + targetLock.getCreature().isValid() +
                 '}';
         return "TeslaTower{" +
-                "damageMultiplier="+damageMultiplier+
-                ", animationCreeper="+animationCreeperStatus+
-                ", attackingCreeper="+attackingCreeperStatus+
-                ", targetLock="+targetLockStatus+"}";
+                "damageMultiplier=" + damageMultiplier +
+                ", animationCreeper=" + animationCreeperStatus +
+                ", attackingCreeper=" + attackingCreeperStatus +
+                ", targetLock=" + targetLockStatus + "}";
     }
 }

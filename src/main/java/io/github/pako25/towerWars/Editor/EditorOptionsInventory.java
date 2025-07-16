@@ -118,7 +118,10 @@ public class EditorOptionsInventory implements InventoryHolder {
         trackPathsItemMeta.displayName(Component.text("Configure track paths"));
         boolean pathsConfigurationValid = !arenaEditor.getPaths().isEmpty();
         for (List<Vector> path : arenaEditor.getPaths()) {
-            if (path.size() < 3) pathsConfigurationValid = false;
+            if (path.size() < 3) {
+                pathsConfigurationValid = false;
+                break;
+            }
         }
 
         List<Component> trackPathsLoreComponents = new ArrayList<>(List.of(
@@ -194,7 +197,7 @@ public class EditorOptionsInventory implements InventoryHolder {
                         return;
                     }
                     Location removed = arenaEditor.removeLastTrackSpawn();
-                    twPlayer.getPlayer().sendMessage(Component.text("Removed track spawn " + removed.toVector().toString()));
+                    twPlayer.getPlayer().sendMessage(Component.text("Removed track spawn " + removed.toVector()));
                 }
                 if (isLeftClick) {
                     ItemStack trackSpawnStick = new ItemStack(Material.STICK, 1);

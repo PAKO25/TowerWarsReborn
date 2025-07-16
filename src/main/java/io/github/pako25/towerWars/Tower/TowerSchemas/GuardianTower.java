@@ -129,7 +129,8 @@ public class GuardianTower extends Tower {
         attackingGuardian.setLaser(true);
     }
 
-    public void animateAttack(TWMob mob) {}
+    public void animateAttack(TWMob mob) {
+    }
 
     public void cleanup() {
         if (tempTarget != null) {
@@ -147,9 +148,9 @@ public class GuardianTower extends Tower {
         double vz = target.z() - source.z();
 
         // test - source
-        double wx = testLocation.x()  - source.x();
-        double wy = testLocation.y()  - source.y();
-        double wz = testLocation.z()  - source.z();
+        double wx = testLocation.x() - source.x();
+        double wy = testLocation.y() - source.y();
+        double wz = testLocation.z() - source.z();
 
         // dot product - je spredaj al zadaj?
         double D = vx * wx + vy * wy + vz * wz;
@@ -161,14 +162,14 @@ public class GuardianTower extends Tower {
         double cz = vx * wy - vy * wx;
 
         // ||v×w||^2
-        double crossNormSq = cx*cx + cy*cy + cz*cz;
+        double crossNormSq = cx * cx + cy * cy + cz * cz;
 
         // ||v||^2
-        double vNormSq = vx*vx + vy*vy + vz*vz;
+        double vNormSq = vx * vx + vy * vy + vz * vz;
 
         // Distance = sqrt( ||v×w||^2 / ||v||^2 )
         double distanceSquared = crossNormSq / vNormSq;
-        return distanceSquared < diameter*diameter;
+        return distanceSquared < diameter * diameter;
     }
 
     public void resetTargeting() {
@@ -180,7 +181,7 @@ public class GuardianTower extends Tower {
 
     @Override
     protected void setSlownessIndicatorHeight() {
-        int height = level+1;
-        slownessIndicatorLocation = location.clone().add(0,height, 0);
+        int height = level + 1;
+        slownessIndicatorLocation = location.clone().add(0, height, 0);
     }
 }

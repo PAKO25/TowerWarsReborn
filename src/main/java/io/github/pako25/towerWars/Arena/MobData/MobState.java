@@ -12,10 +12,10 @@ public class MobState {
     private final int maxSummonCountForBonus = 300;
     private final Material material;
     private final String name;
-    private int cost;
-    private int health;
-    private double speed;
-    private int income;
+    private final int cost;
+    private final int health;
+    private final double speed;
+    private final int income;
     private final boolean isAdvanced;
     private int incomeToPrestige;
     private int incomeToUnlock;
@@ -41,7 +41,7 @@ public class MobState {
         if (!isAdvanced) {
             advancedForm = MobType.valueOf(cfg.getString(mobType.name() + ".evolution"));
             incomeToPrestige = cfg.getInt(advancedForm.name() + ".cost");
-            incomeToUnlock = (int) (cost*0.2);
+            incomeToUnlock = (int) (cost * 0.2);
         }
     }
 
@@ -100,6 +100,7 @@ public class MobState {
     public void incrementSummon() {
         summonCount++;
     }
+
     private int getIncomeEvolution(int playerIncome) {
         if (!isAdvanced) return 0;
         int evolutionByIncome = 0;
@@ -110,6 +111,7 @@ public class MobState {
         }
         return evolutionByIncome < 6 ? evolutionByIncome : 5;
     }
+
     public String getIncomeEvolutionText(int playerIncome) {
         int incomeEvolution = getIncomeEvolution(playerIncome);
         StringBuilder incomeEvolutionText = new StringBuilder(" ");
@@ -118,6 +120,7 @@ public class MobState {
         }
         return incomeEvolutionText.toString();
     }
+
     public int getIncomeForNextEvolutionByIncome(int playerIncome) {
         if (!isAdvanced) return 0;
         int evolutionByIncome = getIncomeEvolution(playerIncome);
@@ -129,6 +132,7 @@ public class MobState {
         }
         return nextEvolutionRequierment;
     }
+
     public String getSummonedBonus() {
         String text = "";
 
@@ -193,40 +197,49 @@ public class MobState {
     }
 
     private int getSummoningBonusHealth() {
-        if (!(mobType == MobType.WITHER_SKELETON || mobType == MobType.GOLD_ZOMBIE || mobType == MobType.DIAMOND_ZOMBIE)) return 0;
+        if (!(mobType == MobType.WITHER_SKELETON || mobType == MobType.GOLD_ZOMBIE || mobType == MobType.DIAMOND_ZOMBIE))
+            return 0;
         float amplifier = (float) (Math.min(summonCount, maxSummonCountForBonus)) / maxSummonCountForBonus;
         return (int) (health * amplifier);
     }
+
     public float getSummoningBonusSpeed() {
-        if (!(mobType == MobType.RAINBOW_SHEEP || mobType == MobType.RUNNING_IRON_GOLEM || mobType == MobType.MAD_COW)) return 0;
+        if (!(mobType == MobType.RAINBOW_SHEEP || mobType == MobType.RUNNING_IRON_GOLEM || mobType == MobType.MAD_COW))
+            return 0;
         float amplifier = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 3);
         return (float) (speed * amplifier);
     }
+
     public int getSummoningBonusIncome() {
         if (!(mobType == MobType.PIGGY_BANK || mobType == MobType.MAD_COW)) return 0;
         float amplifier = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 3);
         return (int) (income * amplifier);
     }
+
     public float getSummoningBonusHealingFactor() {
         if (!(mobType == MobType.HIGH_PRIEST)) return 0;
         float factor = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 2);
         return factor;
     }
+
     public float getSummoningBonusSlowFactor() {
         if (!(mobType == MobType.SPIDER_JOCKEY)) return 0;
         float factor = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 2);
         return factor;
     }
+
     public float getSummoningBonusBlindFactor() {
         if (!(mobType == MobType.SQUID)) return 0;
         float factor = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 2);
         return factor;
     }
+
     public float getSummoningBonusTpDistanceFactor() {
         if (!(mobType == MobType.ENDERMITE)) return 0;
         float factor = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus);
         return factor;
     }
+
     public float getSummoningBonusStunRange() {
         if (!(mobType == MobType.CHARGED_CREEPER)) return 0;
         float factor = (float) (Math.min(summonCount, maxSummonCountForBonus)) / (maxSummonCountForBonus * 3);

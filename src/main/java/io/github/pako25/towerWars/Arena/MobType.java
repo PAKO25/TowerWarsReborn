@@ -36,6 +36,6 @@ public enum MobType {
     DEATH_RIDER,
 
     //special
-    MINI_ZOMBIE;
+    MINI_ZOMBIE
 }
 

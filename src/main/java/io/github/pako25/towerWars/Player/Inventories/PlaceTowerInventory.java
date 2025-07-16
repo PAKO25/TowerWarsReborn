@@ -62,10 +62,10 @@ public class PlaceTowerInventory implements InventoryHolder {
                 applyPrestigeLore(prestige2Item, key, 2);
 
                 inventory.setItem(i, level1Item);
-                inventory.setItem(i+9, level2Item);
-                inventory.setItem(i+18, level3Item);
-                inventory.setItem(i+36, prestige1Item);
-                inventory.setItem(i+45, prestige2Item);
+                inventory.setItem(i + 9, level2Item);
+                inventory.setItem(i + 18, level3Item);
+                inventory.setItem(i + 36, prestige1Item);
+                inventory.setItem(i + 45, prestige2Item);
             }
             if (type.equals("support")) {
                 int income = twPlayer.getIncome();
@@ -79,7 +79,7 @@ public class PlaceTowerInventory implements InventoryHolder {
                 applyLevelsMeta(level2Item, key, 2);
 
                 inventory.setItem(i, level1Item);
-                inventory.setItem(i+9, level2Item);
+                inventory.setItem(i + 9, level2Item);
             }
             i++;
         }
@@ -131,7 +131,7 @@ public class PlaceTowerInventory implements InventoryHolder {
             lore.add(Component.text(line, NamedTextColor.AQUA));
         }
         meta.lore(lore);
-        applyMetaStorage(meta, key, 4,prestige);
+        applyMetaStorage(meta, key, 4, prestige);
         item.setItemMeta(meta);
     }
 

@@ -8,5 +8,5 @@ public enum TowerType {
     ENDERMAN,
     VILLAGER,
     GUARDIAN,
-    TESLA;
+    TESLA
 }

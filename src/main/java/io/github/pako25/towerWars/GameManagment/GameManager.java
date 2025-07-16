@@ -101,7 +101,7 @@ public class GameManager {
         Iterator<GameQueue> iterator = queue.values().iterator();
         while (iterator.hasNext()) {
             GameQueue q = iterator.next();
-            if (q.containsPlayer(twPlayer) ) {
+            if (q.containsPlayer(twPlayer)) {
                 if (q.isStartable()) {
                     startGame(q.getArenaName());
                     iterator.remove();
@@ -112,6 +112,7 @@ public class GameManager {
             }
         }
     }
+
     protected void startGameByCountdown(String arenaName) {
         startGame(arenaName);
         queue.remove(arenaName);
@@ -156,9 +157,11 @@ public class GameManager {
         gameMap.clear();
         SignManager.getInstance().updateSigns();
     }
+
     public List<String> getAllArenas() {
         return allArenas;
     }
+
     public void addArenaToAllArenas(String arenaName) {
         allArenas.add(arenaName);
 
@@ -166,6 +169,7 @@ public class GameManager {
         mainConfig.getCustomFile().set("arenas", allArenas);
         mainConfig.save();
     }
+
     public List<String> getAvailableArenas() {
         List<String> availableArenas = new ArrayList<>();
         for (String arenaName : allArenas) {
@@ -177,12 +181,14 @@ public class GameManager {
         }
         return availableArenas;
     }
+
     public int getPeopleQueuedForArena(String arenaName) {
         if (queue.containsKey(arenaName)) {
             return queue.get(arenaName).getPlayers().size();
         }
         return 0;
     }
+
     public boolean isArenaEnabled(String arenaName) {
         if (!allArenas.contains(arenaName)) return false;
         FileConfiguration cfg = CustomConfig.getFileConfiguration(arenaName);

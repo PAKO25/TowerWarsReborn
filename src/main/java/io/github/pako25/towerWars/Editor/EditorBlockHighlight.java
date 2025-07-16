@@ -44,7 +44,8 @@ public class EditorBlockHighlight extends BukkitRunnable {
                         if (trackBound == null) continue;
                         spawnHighlightParticles(trackSpawn.clone().add(trackBound).getBlock(), player, Particle.HAPPY_VILLAGER);
                     }
-                } catch (NoSuchElementException ignored) {}
+                } catch (NoSuchElementException ignored) {
+                }
             }
             if (item.getType() == Material.REPEATER || item.getType() == Material.RAIL) {
                 if (arenaEditor.getTrackSpawns().isEmpty()) return;

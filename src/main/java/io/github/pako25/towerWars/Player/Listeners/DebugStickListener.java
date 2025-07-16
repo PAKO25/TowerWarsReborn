@@ -62,7 +62,7 @@ public class DebugStickListener implements Listener {
             for (Tower tower : allTowers) {
                 if (tower.isEntityInTower(mob)) {
                     found = true;
-                    player.sendMessage(Component.text("Entity belongs to tower: " + tower.toString()));
+                    player.sendMessage(Component.text("Entity belongs to tower: " + tower));
                     if (tower instanceof TeslaTower teslaTower) {
                         twPlayer.getPlayer().sendMessage(Component.text("Additional debug for tesla tower: " + teslaTower.debugInfo()));
                     }
@@ -72,7 +72,7 @@ public class DebugStickListener implements Listener {
         if (!found) {
             player.sendMessage(Component.text("Entity doesn't belong to a tower.", NamedTextColor.RED));
             if (target instanceof Mob mob) {
-                String mobStatus = mob.toString() + "{" +
+                String mobStatus = mob + "{" +
                         "dead=" + mob.isDead() +
                         ", invisible=" + mob.isInvisible() +
                         ", ticking=" + mob.isTicking() +

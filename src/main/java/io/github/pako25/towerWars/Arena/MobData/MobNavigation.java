@@ -213,6 +213,7 @@ public class MobNavigation {
     public double getLastPathLeft() {
         return lastPathLeft;
     }
+
     public void setHodiNazaj(boolean hodiNazaj) {
         this.hodiNazaj = hodiNazaj;
     }

@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class TWPlayer {
-    private static Map<UUID, TWPlayer> TWPlayerMap = new HashMap<>();
+    private static final Map<UUID, TWPlayer> TWPlayerMap = new HashMap<>();
 
     private PlaceTowerInventory placeTowerInventory;
     private SummonMobInventory summonMobInventory;
@@ -114,7 +114,9 @@ public class TWPlayer {
         player.openInventory(new UpgradeTowerInventory(plugin, this, track.getTowers().get(location), location).getInventory());
     }
 
-    public Track getTrack() { return track; }
+    public Track getTrack() {
+        return track;
+    }
 
     public boolean summonMob(MobType mobType, int cost, int income) {
         if (cost > coin) {
@@ -136,7 +138,7 @@ public class TWPlayer {
         if (!track.hasSpaceLeft()) {
             player.sendMessage(Component.text("You have already placed the maximum amount of towers!", NamedTextColor.RED));
             return false;
-        };
+        }
         boolean success = buyForCoin(cost);
         if (success) {
             if (PlayerStats.trackingEnabled) PlayerStats.getStats(player.getUniqueId()).increaseTowers_placed();
@@ -273,9 +275,11 @@ public class TWPlayer {
     public void increaseCoin(int amount) {
         coin += amount;
     }
+
     public void increaseIncome(int amount) {
         income += amount;
     }
+
     public boolean buyForCoin(int amount) {
         if (amount <= coin) {
             coin = coin - amount;
@@ -290,48 +294,67 @@ public class TWPlayer {
         int amount = (game.getTickCounter() / 1200) + 1;
         if (stock < 30) stock += Math.min(amount, 5);
         if (stock > 30) stock = 30;
-        if (summonMobInventory != null && !summonMobInventory.getInventory().getViewers().isEmpty()) summonMobInventory.loadInventory();
+        if (summonMobInventory != null && !summonMobInventory.getInventory().getViewers().isEmpty())
+            summonMobInventory.loadInventory();
     }
 
     public int getIncome() {
         return income;
     }
+
     public int getStock() {
         return stock;
     }
+
     public boolean isInGame() {
         return inGame;
     }
+
     public int getCoin() {
         return coin;
     }
+
     public boolean isInEditor() {
         return inEditor;
     }
+
     public void setInEditor(boolean inEditor) {
         this.inEditor = inEditor;
     }
+
     public ArenaEditor getActiveArenaEditor() {
         return activeArenaEditor;
     }
+
     public void setActiveArenaEditor(ArenaEditor arenaEditor) {
         activeArenaEditor = arenaEditor;
     }
+
     public static Map<UUID, TWPlayer> debugGetTWPlayerMap() {
         return TWPlayerMap;
     }
+
     public Location getLocationBeforeGame() {
         return locationBeforeGame;
     }
+
     public void setLocationBeforeGame(Location locationBeforeGame) {
         this.locationBeforeGame = locationBeforeGame;
     }
+
     public void setInLobby(boolean inLobby) {
         this.inLobby = inLobby;
     }
+
     public boolean isInLobby() {
         return inLobby;
     }
-    public Game getGame() { return game; }
-    public BossBar getBossBar() {return bossBar;}
+
+    public Game getGame() {
+        return game;
+    }
+
+    public BossBar getBossBar() {
+        return bossBar;
+    }
 }

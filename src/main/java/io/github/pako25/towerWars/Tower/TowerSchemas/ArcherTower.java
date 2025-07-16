@@ -127,10 +127,11 @@ public class ArcherTower extends Tower {
         ProjectileDespawnListener.getInstance().addEntityUUID(arrow.getUniqueId());
     }
 
-    public void cleanup() {}
+    public void cleanup() {
+    }
 
     @Override
     protected void setSlownessIndicatorHeight() {
-        slownessIndicatorLocation = location.clone().add(0,3, 0);
+        slownessIndicatorLocation = location.clone().add(0, 3, 0);
     }
 }

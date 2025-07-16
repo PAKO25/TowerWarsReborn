@@ -23,9 +23,9 @@ import java.util.List;
 import java.util.Set;
 
 public class TWMob {
-    private Mob creature;
-    private Track track;
-    private Location trackSpawn;
+    private final Mob creature;
+    private final Track track;
+    private final Location trackSpawn;
     private ArrayList<Vector> path = new ArrayList<>();
     private final TWPlayer summonerTWPlayer;
     private final MobNavigation mobNavigation;
@@ -52,7 +52,7 @@ public class TWMob {
         this.summonerTWPlayer = summonerTWPlayer;
         this.creature = creature;
         this.navigatableMob = creature;
-        this.mobNavigation = new MobNavigation(path, track.getTrackSpawn(), this);;
+        this.mobNavigation = new MobNavigation(path, track.getTrackSpawn(), this);
         this.mobType = mobType;
         applyAttributes(mobType);
         updateHealthDisplay();
@@ -185,7 +185,7 @@ public class TWMob {
     }
 
     public void burnTick() {
-        health = (int) (health*0.95);
+        health = (int) (health * 0.95);
         updateHealthDisplay();
     }
 
@@ -209,7 +209,8 @@ public class TWMob {
     }
 
     private void giveKillBonuses() {
-        if (PlayerStats.trackingEnabled) PlayerStats.getStats(track.getTwPlayer().getPlayer().getUniqueId()).increaseMob_kills();
+        if (PlayerStats.trackingEnabled)
+            PlayerStats.getStats(track.getTwPlayer().getPlayer().getUniqueId()).increaseMob_kills();
 
         NoKillBonusesAbility noKillBonusesAbility = (NoKillBonusesAbility) getAbilityByType(AbilityTypes.NOKILLBONUSES);
         if (noKillBonusesAbility != null) return;
@@ -273,6 +274,7 @@ public class TWMob {
     public Location getLocation() {
         return creature.getLocation();
     }
+
     public Location getEyeLocation() {
         return creature.getEyeLocation();
     }
@@ -316,6 +318,7 @@ public class TWMob {
     public List<MobAbility> getAbilities() {
         return abilities;
     }
+
     public Track getTrack() {
         return track;
     }
@@ -327,9 +330,11 @@ public class TWMob {
     public MobType getMobType() {
         return mobType;
     }
+
     public void setNavigatableMob(Mob mob) {
         navigatableMob = mob;
     }
+
     public Mob getNavigatableCreature() {
         return navigatableMob;
     }

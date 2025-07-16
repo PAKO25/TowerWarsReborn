@@ -19,9 +19,9 @@ import java.util.List;
 
 public class MainCommand implements TabExecutor {
 
-    private JoinGame joinGameHandler = new JoinGame();
-    private LeaveGame leaveGameHandler = new LeaveGame();
-    private ArenaCommand arenaCommandHandler = new ArenaCommand();
+    private final JoinGame joinGameHandler = new JoinGame();
+    private final LeaveGame leaveGameHandler = new LeaveGame();
+    private final ArenaCommand arenaCommandHandler = new ArenaCommand();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -49,7 +49,7 @@ public class MainCommand implements TabExecutor {
                 break;
 
             case "arena":
-                arenaCommandHandler.onCommand(twPlayer,  Arrays.copyOfRange(args, 1, args.length));
+                arenaCommandHandler.onCommand(twPlayer, Arrays.copyOfRange(args, 1, args.length));
                 break;
 
             case "forcestart":
@@ -133,8 +133,10 @@ public class MainCommand implements TabExecutor {
                 List<String> availableSubcommands = new ArrayList<>(List.of("help"));
                 if (player.hasPermission("towerwars.play")) availableSubcommands.addAll(List.of("join", "leave"));
                 if (player.hasPermission("towerwars.forcestart")) availableSubcommands.add("forcestart");
-                if (player.hasPermission("towerwars.debug")) availableSubcommands.addAll(List.of("debug", "increaseincome"));
-                if (player.hasPermission("towerwars.configure") || player.hasPermission("towerwars.list")) availableSubcommands.add("arena");
+                if (player.hasPermission("towerwars.debug"))
+                    availableSubcommands.addAll(List.of("debug", "increaseincome"));
+                if (player.hasPermission("towerwars.configure") || player.hasPermission("towerwars.list"))
+                    availableSubcommands.add("arena");
                 yield availableSubcommands.stream().filter(s -> s.toLowerCase().startsWith(args[0].toLowerCase())).toList();
             }
         };

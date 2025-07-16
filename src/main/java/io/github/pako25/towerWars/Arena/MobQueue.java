@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MobQueue {
-    private ArrayList<QueuedMob> mobList = new ArrayList<>();
+    private final ArrayList<QueuedMob> mobList = new ArrayList<>();
 
     public void add(TWMob mob) {
         mobList.add(new QueuedMob(mob));
     }
+
     public ArrayList<TWMob> tick() {
         ArrayList<TWMob> out = new ArrayList<>();
         Iterator<QueuedMob> iterator = mobList.iterator();

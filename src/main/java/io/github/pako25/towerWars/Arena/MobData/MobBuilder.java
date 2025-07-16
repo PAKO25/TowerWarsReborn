@@ -61,21 +61,21 @@ public class MobBuilder {
 
         switch (mobType) {
             case LEATHER_ZOMBIE:
-                creature.getEquipment().setHelmet (new ItemStack(Material.LEATHER_HELMET));
+                creature.getEquipment().setHelmet(new ItemStack(Material.LEATHER_HELMET));
                 creature.getEquipment().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
                 creature.getEquipment().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
                 creature.getEquipment().setBoots(new ItemStack(Material.LEATHER_BOOTS));
                 break;
 
             case GOLD_ZOMBIE:
-                creature.getEquipment().setHelmet ( new ItemStack(Material.GOLDEN_HELMET));
+                creature.getEquipment().setHelmet(new ItemStack(Material.GOLDEN_HELMET));
                 creature.getEquipment().setChestplate(new ItemStack(Material.GOLDEN_CHESTPLATE));
                 creature.getEquipment().setLeggings(new ItemStack(Material.GOLDEN_LEGGINGS));
                 creature.getEquipment().setBoots(new ItemStack(Material.GOLDEN_BOOTS));
                 break;
 
             case DIAMOND_ZOMBIE:
-                creature.getEquipment().setHelmet (new ItemStack(Material.DIAMOND_HELMET));
+                creature.getEquipment().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
                 creature.getEquipment().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
                 creature.getEquipment().setLeggings(new ItemStack(Material.DIAMOND_LEGGINGS));
                 creature.getEquipment().setBoots(new ItemStack(Material.DIAMOND_BOOTS));

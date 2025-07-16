@@ -22,19 +22,19 @@ public class SlimeTower extends Tower {
     }
 
     public void spawn() {
-        Slime slime = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+        Slime slime = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
         slime.setSize(2);
         entities.add(slime);
         if (level > 1 && prestige == 0) {
-            Slime slime2 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+            Slime slime2 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
             slime.addPassenger(slime2);
             slime2.setSize(1);
             entities.add(slime2);
             if (level == 3) {
-                Slime slime3 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+                Slime slime3 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
                 slime2.addPassenger(slime3);
                 slime3.setSize(1);
-                Slime slime4 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+                Slime slime4 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
                 slime3.addPassenger(slime4);
                 slime4.setSize(1);
                 entities.add(slime3);
@@ -42,13 +42,13 @@ public class SlimeTower extends Tower {
             }
         }
         if (prestige == stickyTowerPrestige) {
-            Slime slime2 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+            Slime slime2 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
             slime.addPassenger(slime2);
             slime2.setSize(2);
-            Slime slime3 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+            Slime slime3 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
             slime2.addPassenger(slime3);
             slime3.setSize(2);
-            Slime slime4 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5,1, 0.5), EntityType.SLIME);
+            Slime slime4 = (Slime) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.SLIME);
             slime3.addPassenger(slime4);
             slime4.setSize(2);
             entities.add(slime2);
@@ -78,7 +78,7 @@ public class SlimeTower extends Tower {
         Set<TWMob> inAttackRadius = defaultAttackMobs(mobSet);
         for (TWMob mob : inAttackRadius) {
             boolean success = mob.takeDamage(damage, this, AttackType.AOE);
-            if (success) damageDealt+=damage;
+            if (success) damageDealt += damage;
             mob.applySlowness(amplifier, duration);
         }
         shots++;
@@ -93,13 +93,14 @@ public class SlimeTower extends Tower {
         ParticleTrail.spawnParticleTrail(source, goal, 1, 5, Particle.WHITE_SMOKE);
     }
 
-    public void cleanup() {}
+    public void cleanup() {
+    }
 
     @Override
     protected void setSlownessIndicatorHeight() {
         int height = 3;
         if (level == 3) height = 4;
         if (prestige == stickyTowerPrestige) height = 5;
-        slownessIndicatorLocation = location.clone().add(0,height, 0);
+        slownessIndicatorLocation = location.clone().add(0, height, 0);
     }
 }

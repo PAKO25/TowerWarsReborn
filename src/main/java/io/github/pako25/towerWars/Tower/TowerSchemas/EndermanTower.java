@@ -66,6 +66,6 @@ public class EndermanTower extends Tower {
 
     @Override
     protected void setSlownessIndicatorHeight() {
-        slownessIndicatorLocation = location.clone().add(0,4, 0);
+        slownessIndicatorLocation = location.clone().add(0, 4, 0);
     }
 }

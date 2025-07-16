@@ -76,7 +76,7 @@ public class UpgradeTowerInventory implements InventoryHolder {
                     Component.text(" "),
                     Component.text("Damage: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".levels." + (level + 1) + ".damage"), NamedTextColor.GREEN)),
                     Component.text("Reload: ", NamedTextColor.AQUA).append(Component.text(tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".levels." + (level + 1) + ".reload"), NamedTextColor.GREEN)),
-                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage()/tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS, NamedTextColor.GREEN)),
+                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage() / tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS, NamedTextColor.GREEN)),
                     Component.text("Range: ", NamedTextColor.AQUA).append(Component.text(tower.getRange(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".levels." + (level + 1) + ".range"), NamedTextColor.GREEN)),
                     Component.text("Splash: ", NamedTextColor.AQUA).append(Component.text(tower.getSplash(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".levels." + (level + 1) + ".splash"), NamedTextColor.GREEN))
             ));
@@ -96,7 +96,7 @@ public class UpgradeTowerInventory implements InventoryHolder {
                     Component.text(" "),
                     Component.text("Damage: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage(), NamedTextColor.YELLOW)),
                     Component.text("Reload: ", NamedTextColor.AQUA).append(Component.text(tower.getReload(), NamedTextColor.YELLOW)),
-                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage()/tower.getReload(), NamedTextColor.YELLOW)),
+                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage() / tower.getReload(), NamedTextColor.YELLOW)),
                     Component.text("Range: ", NamedTextColor.AQUA).append(Component.text(tower.getRange(), NamedTextColor.YELLOW)),
                     Component.text("Splash: ", NamedTextColor.AQUA).append(Component.text(tower.getSplash(), NamedTextColor.YELLOW))
             ));
@@ -165,7 +165,7 @@ public class UpgradeTowerInventory implements InventoryHolder {
                     Component.text(" "),
                     Component.text("Damage: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.1.damage"), NamedTextColor.GREEN)),
                     Component.text("Reload: ", NamedTextColor.AQUA).append(Component.text(tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.1.reload"), NamedTextColor.GREEN)),
-                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage()/tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS1, NamedTextColor.GREEN)),
+                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage() / tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS1, NamedTextColor.GREEN)),
                     Component.text("Range: ", NamedTextColor.AQUA).append(Component.text(tower.getRange(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.1.range"), NamedTextColor.GREEN)),
                     Component.text("Splash: ", NamedTextColor.AQUA).append(Component.text(tower.getSplash(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.1.splash"), NamedTextColor.GREEN))
             ));
@@ -195,7 +195,7 @@ public class UpgradeTowerInventory implements InventoryHolder {
                     Component.text(" "),
                     Component.text("Damage: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.2.damage"), NamedTextColor.GREEN)),
                     Component.text("Reload: ", NamedTextColor.AQUA).append(Component.text(tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.2.reload"), NamedTextColor.GREEN)),
-                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage()/tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS2, NamedTextColor.GREEN)),
+                    Component.text("DPS: ", NamedTextColor.AQUA).append(Component.text(tower.getDamage() / tower.getReload(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + newDPS2, NamedTextColor.GREEN)),
                     Component.text("Range: ", NamedTextColor.AQUA).append(Component.text(tower.getRange(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.2.range"), NamedTextColor.GREEN)),
                     Component.text("Splash: ", NamedTextColor.AQUA).append(Component.text(tower.getSplash(), NamedTextColor.YELLOW)).append(Component.text(" >>> " + cfg.getString(key + ".prestiges.2.splash"), NamedTextColor.GREEN))
             ));
@@ -277,6 +277,7 @@ public class UpgradeTowerInventory implements InventoryHolder {
         inventory.close();
         twPlayer.openTowerMenu(location);
     }
+
     private void notEnoughCoins() {
         inventory.close();
         twPlayer.getPlayer().sendMessage(Component.text("Not enough gold!", NamedTextColor.RED));

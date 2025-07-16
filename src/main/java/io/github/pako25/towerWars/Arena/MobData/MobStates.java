@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class MobStates {
-    private HashMap<MobType, MobState> mobStates = new HashMap<>();
+    private final HashMap<MobType, MobState> mobStates = new HashMap<>();
     private float powerCreepHealthMultiplyer = 1;
 
     public MobStates() {
@@ -33,13 +33,14 @@ public class MobStates {
             boolean unsummonable = cfg.getBoolean(key + ".unsummonable");
             MobType mobType = MobType.valueOf(key);
 
-            mobStates.put(mobType, new MobState(material, name, cost, health, speed, income, category.equals("advanced") ? true : false, mobType, EntityType.valueOf(entityTypeString), cfg, !unsummonable, this));
+            mobStates.put(mobType, new MobState(material, name, cost, health, speed, income, category.equals("advanced"), mobType, EntityType.valueOf(entityTypeString), cfg, !unsummonable, this));
         }
     }
 
     public MobState getMobState(MobType mobType) {
         return mobStates.get(mobType);
     }
+
     public Set<Map.Entry<MobType, MobState>> getEntrySet() {
         return mobStates.entrySet();
     }

@@ -46,7 +46,7 @@ public class WitchTower extends Tower {
         assert inAttackRadius != null;
         for (TWMob mob : inAttackRadius) {
             boolean success = mob.takeDamage(damage, this, AttackType.MAGIC);
-            if (success) damageDealt+=damage;
+            if (success) damageDealt += damage;
             if (level == 1) {
                 mob.applyWeakness(0.4F, 10);
             }
@@ -75,10 +75,11 @@ public class WitchTower extends Tower {
         ParticleTrail.spawnParticleTrail(sourceLocation, targetLocation, 0.8, 5, Particle.ENCHANT);
     }
 
-    public void cleanup() {}
+    public void cleanup() {
+    }
 
     @Override
     protected void setSlownessIndicatorHeight() {
-        slownessIndicatorLocation = location.clone().add(0,4, 0);
+        slownessIndicatorLocation = location.clone().add(0, 4, 0);
     }
 }

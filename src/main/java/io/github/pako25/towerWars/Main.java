@@ -1,4 +1,5 @@
 package io.github.pako25.towerWars;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {

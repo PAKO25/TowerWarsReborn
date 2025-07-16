@@ -22,7 +22,7 @@ public class Sidebar {
     private int lastNextIncome = 5;
     private int lastTimer = 0;
 
-    private HashMap<Location, TrackLivesAndScoreboardIndexHolder> lastTrackLivesAndIndexes = new HashMap<>();
+    private final HashMap<Location, TrackLivesAndScoreboardIndexHolder> lastTrackLivesAndIndexes = new HashMap<>();
 
     public Sidebar(Game game, TWPlayer twPlayer) {
         this.game = game;
@@ -112,20 +112,24 @@ public class Sidebar {
         Component component = Component.text("Gold: ", NamedTextColor.GOLD).append(Component.text(gold, NamedTextColor.YELLOW));
         return LegacyComponentSerializer.legacySection().serialize(component);
     }
+
     private String incomeBuilder(int income) {
         Component component = Component.text("Income: ", NamedTextColor.GOLD).append(Component.text(income, NamedTextColor.YELLOW));
         return LegacyComponentSerializer.legacySection().serialize(component);
     }
+
     private String nextIncomeBuilder(int nextIncome) {
         Component component = Component.text("Next income: ", NamedTextColor.GOLD).append(Component.text(nextIncome, NamedTextColor.YELLOW));
         return LegacyComponentSerializer.legacySection().serialize(component);
     }
+
     private String timerBuilder(int totalSeconds) {
         int minutes = totalSeconds / 60;
         int seconds = totalSeconds % 60;
         Component component = Component.text("Timer: ", NamedTextColor.WHITE).append(Component.text(minutes + ":" + (seconds >= 10 ? seconds : "0" + seconds), NamedTextColor.GREEN));
         return LegacyComponentSerializer.legacySection().serialize(component);
     }
+
     private String trackBuilder(Track track, int lives) {
         String name = track.getColor().toString().toUpperCase();
         if (name.equals("GOLD")) name = "ORANGE";

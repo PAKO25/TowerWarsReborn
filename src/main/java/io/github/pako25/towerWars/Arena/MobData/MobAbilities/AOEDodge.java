@@ -13,6 +13,6 @@ public class AOEDodge implements MobAbility {
     }
 
     public boolean isAbilityType(AbilityTypes abilityType) {
-        return  abilityType == AbilityTypes.AOEDODGE;
+        return abilityType == AbilityTypes.AOEDODGE;
     }
 }

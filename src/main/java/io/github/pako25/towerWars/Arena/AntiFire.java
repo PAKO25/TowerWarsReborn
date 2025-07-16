@@ -13,9 +13,11 @@ public class AntiFire implements Listener {
 
     private final Set<UUID> protectedMobs = new HashSet<>();
 
-    private AntiFire() {}
+    private AntiFire() {
+    }
 
     private static AntiFire listener;
+
     public static AntiFire getListener() {
         if (listener == null) {
             listener = new AntiFire();

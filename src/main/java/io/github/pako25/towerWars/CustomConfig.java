@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomConfig {
-    private File file;
+    private final File file;
     private FileConfiguration customFile;
-    private static Map<String, CustomConfig> customConfigMap = new HashMap<>();
+    private static final Map<String, CustomConfig> customConfigMap = new HashMap<>();
     private final JavaPlugin plugin;
     private final String configFilePath;
 

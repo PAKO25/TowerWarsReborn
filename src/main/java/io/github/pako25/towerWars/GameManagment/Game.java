@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Game {
-    private List<Track> trackList = new ArrayList<>();
+    private final List<Track> trackList = new ArrayList<>();
     private final JavaPlugin plugin;
     private final String arenaName;
     private Material towerPlaceMaterial;
@@ -29,7 +29,7 @@ public class Game {
     private BukkitTask gameTicker;
 
     private final int incomeTimeout = 6;
-    private final int maxTime = 60*60;
+    private final int maxTime = 60 * 60;
     private int incomeTimer = 5;
     private int gameTimer = maxTime;
     private int tickCounter = 1;
@@ -72,7 +72,7 @@ public class Game {
 
         trackList.forEach(Track::tickTrack);
 
-        if (tickCounter >= maxTime*4) {
+        if (tickCounter >= maxTime * 4) {
             staleMate();
         }
     }
@@ -94,7 +94,8 @@ public class Game {
 
         List<Location> trackSpawns = new ArrayList<>();
         List<?> spawnsRaw = config.getList("trackSpawns");
-        if (spawnsRaw == null) throw new IllegalArgumentException("Missing 'trackSpawns' section in " + arenaName + ".yml");
+        if (spawnsRaw == null)
+            throw new IllegalArgumentException("Missing 'trackSpawns' section in " + arenaName + ".yml");
 
         for (Object spawnObj : spawnsRaw) {
             if (!(spawnObj instanceof List<?> coords) || coords.size() != 3) {
@@ -153,7 +154,7 @@ public class Game {
                 track.getTwPlayer().getPlayer().sendMessage(Component.text(deadColorText, deadColor).append(Component.text(" has lost!", NamedTextColor.RED)));
             }
         }
-        if (trackList.size() == 1 && tickCounter < maxTime*4) {
+        if (trackList.size() == 1 && tickCounter < maxTime * 4) {
             gameEnd();
         }
     }
