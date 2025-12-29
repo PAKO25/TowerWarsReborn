@@ -1,7 +1,5 @@
 # Installation
 
-> ⚠️ **Disclaimer** — as of currently no builds will be provided since some stuff still need some work. Feel free to compile from source though.
-
 ## Requirements
 
 - **Minecraft Server Version**: Paper 1.21 or higher
@@ -26,8 +24,8 @@
 ## Advanced
 
 If you want the plugin for other versions feel free to compile it from source against the desired version.
-Keep in mind however, that the plugin uses NMS (net.minecraft.server) and I haven't implemented any reflection yet.
-Cross version compatibility is therefore highly unlikely.
+Keep in mind however, that the plugin uses NMS (net.minecraft.server) and I haven't implemented any reflections yet.
+Cross version compatibility is therefore highly unlikely, although it should be fairly easy to port until Mojang changes some major stuff.
 
 ---
 
